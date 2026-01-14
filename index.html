@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PP Street Art | Digital Archive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo" onclick="showPage('intro')" style="cursor: pointer;">
+    <span class="logo-icon">🎨</span> PP / STREET ART
+  </div>
+  
+  <div class="nav-links">
+    <button onclick="showPage('intro')" class="nav-btn active">
+       <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+       Home
+    </button>
+    <button onclick="showPage('about')" class="nav-btn">
+       <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+       About
+    </button>
+    <button onclick="showPage('map')" class="map-toggle-btn" title="View Map">
+      <svg class="icon-map" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+    </button>
+  </div>
+</nav>
+  <section id="intro" class="page active">
+    <header class="hero">
+      <div class="hero-content">
+        <h1 class="reveal-text">Phnom Penh <br><span class="accent-text">Street Art</span></h1>
+        <p class="fade-in">A curated digital archive documenting the evolving urban canvas of Cambodia's capital.</p>
+        <button class="cta-button" onclick="showPage('map')">Explore the Map</button>
+      </div>
+    </header>
+  </section>
+
+  <section id="map" class="page">
+    <div class="map-wrapper">
+      <div class="map-sidebar">
+        <h3>Urban Canvas</h3>
+        <p>Use the map to navigate through the murals of Boeung Keng Kang, Riverside, and beyond.</p>
+      </div>
+      <div class="map-container">
+      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1RER5YDqS45dysURyIVe77XDnhKRioCY&ehbc=2E312F" width="640" height="480"></iframe></div>
+    </div>
+  </section>
+
+  <section id="about" class="page">
+    <div class="about-container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>About the Project</h2>
+          <p>We created this project as a part of our J-term "Arts For Transformation" as a part of curriculum for New York University Abu Dhabi.</p>
+          <p>Collaborating with local artists and international collectives, we aim to elevate the visibility of the Cambodian contemporary art scene.</p>
+        </div>
+        <div class="about-image">
+          
+          <img src="images/nyuad.png" alt="nyuad">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+:root {
+  --bg: #0a0a0a;
+  --text: #ffffff;
+  --accent: #ff4d4d;
+  /* Palette for the rainbow text */
+  --c1: #ff5f6d; /* Coral */
+  --c2: #ffc371; /* Peach */
+  --c3: #81ffae; /* Mint */
+  --c4: #71b7ff; /* Sky */
+  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(15px); /* Professional frosted glass effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  font-family: 'Space Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  transition: var(--transition);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
+  transition: var(--transition);
+}
+
+.nav-btn:hover, .nav-btn.active {
+  color: #fff;
+}
+
+.nav-btn.active .icon {
+  stroke: var(--c1); /* Icon turns coral when active */
+}
+
+/* The Map Button (Floating Circle) */
+.map-toggle-btn {
+  background: linear-gradient(45deg, var(--c1), var(--c2));
+  border: none;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(255, 95, 109, 0.3);
+}
+
+.icon-map {
+  width: 24px;
+  height: 24px;
+}
+
+.map-toggle-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: 0 12px 25px rgba(255, 95, 109, 0.5);
+}
+/* Page Transitions */
+.page {
+  display: none;
+  min-height: 100vh;
+  padding-top: 100px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+
+.page.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(3.5rem, 9vw, 6.5rem);
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(to right, var(--c1), var(--c2), var(--c3), var(--c4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Makes the colors pop against black */
+  filter: drop-shadow(0 0 30px rgba(255, 195, 113, 0.2));
+}
+
+.accent-text {
+  -webkit-text-stroke: 1.5px white;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+
+.cta-button {
+  margin-top: 30px;
+  padding: 15px 40px;
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  cursor: pointer;
+  font-family: 'Space Mono', monospace;
+  transition: var(--transition);
+}
+
+.cta-button:hover {
+  background: white;
+  color: black;
+}
+
+.map-wrapper {
+  display: flex;
+  height: 85vh;
+  margin: 0 40px;
+  background: #111; /* Slight background for the sidebar area */
+  border: 1px solid #333;
+  border-radius: 8px; /* Rounded corners for a modern feel */
+  overflow: hidden; /* Keeps the iframe corners rounded too */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+.map-sidebar {
+  width: 300px;
+  padding: 40px;
+  border-right: 1px solid #333;
+}
+
+.map-container {
+  flex-grow: 1;
+}
+
+/* Update this section in your style.css */
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* Removed the grayscale and invert filters to restore original colors */
+  filter: none; 
+}
+
+/* About Section */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.art-placeholder {
+  width: 100%;
+  height: 500px;
+  background: #1a1a1a;
+  border-radius: 4px;
+}
