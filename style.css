@@ -204,3 +204,105 @@ body, html {
   background: #1a1a1a;
   border-radius: 4px;
 }
+/* ---------- MOBILE ADAPTIVE RULES ---------- */
+
+/* 1. Navbar Adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px; /* Smaller padding on phones */
+  }
+  
+  .logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    gap: 15px; /* Tighter gap for mobile buttons */
+  }
+
+  .nav-btn {
+    font-size: 0.9rem;
+    gap: 5px;
+  }
+  
+  /* Hide the big map circle on mobile, use the small icon instead */
+  .map-toggle-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* 2. Hero Section (Heading size) */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 3rem; /* Scaled down for phone screens */
+    letter-spacing: -1px;
+  }
+  .hero p {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+}
+
+/* 3. Map Centering & Mobile Stacking */
+#map.page {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#map.page.active {
+  display: flex;
+}
+
+.map-wrapper {
+  display: flex;
+  flex-direction: row; /* Desktop default */
+  width: 90%;
+  height: 75vh;
+}
+
+@media (max-width: 900px) {
+  .map-wrapper {
+    flex-direction: column; /* Stack Sidebar and Map vertically */
+    height: 85vh;
+    width: 95%;
+    margin-top: 20px;
+  }
+
+  .map-sidebar {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    border-right: none;
+    border-bottom: 1px solid #333;
+    text-align: center;
+  }
+
+  .map-sidebar h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+
+  .map-sidebar p {
+    display: none; /* Hide long description on mobile to save space for the map */
+  }
+
+  .map-container {
+    height: 100%; /* Map takes up remaining space */
+  }
+}
+
+/* 4. About Grid Stacking */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Stack text on top of image */
+    gap: 40px;
+    text-align: center;
+  }
+
+  .art-placeholder {
+    height: 300px;
+  }
+}
