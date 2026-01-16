@@ -497,3 +497,40 @@ body, html {
   -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+.mentor-section {
+  margin-top: 50px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+.mentor-label {
+  font-family: 'Space Mono', monospace;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  color: var(--c2); /* Peach/Sand color */
+  margin-bottom: 15px;
+}
+
+.mentor-card h4 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.mentor-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .mentor-section {
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+}
