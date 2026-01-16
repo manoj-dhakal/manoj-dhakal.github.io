@@ -138,33 +138,54 @@ body, html {
 }
 
 .cta-button:hover { background: white; color: black; }
+/* ---------- FULL SCREEN MAP VIEW (Desktop & Mobile) ---------- */
+#map.page {
+  padding-top: 80px; /* Aligns with your fixed navbar height */
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Clips the negative margin below */
+  display: none;    /* Managed by showPage() */
+}
 
-/* ---------- MAP SECTION ---------- */
+#map.page.active {
+  display: flex;
+}
+
+/* The Squeeze: Hiding the Google 'Title' Bar */
+.map-container {
+  width: 100%;
+  /* We make the container taller and pull it UP to hide the Google Header behind the navbar */
+  height: calc(100% + 55px); 
+  margin-top: -55px;
+  position: relative;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 .map-wrapper {
+  width: 100%;
+  height: 100%;
   display: flex;
-  width: 90%;
-  max-width: 1200px;
-  height: 70vh;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+  background: #000;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
+/* Hide the sidebar for the clean "App" look */
 .map-sidebar {
-  width: 280px;
-  padding: 30px;
-  border-right: 1px solid #333;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: none; 
 }
 
-.map-container { flex-grow: 1; }
-.map-container iframe { width: 100%; height: 100%; border: none; }
 
+
+/* Ensure the Map page doesn't have the standard page padding */
+#map.page {
+  padding-bottom: 0;
+}
 /* ---------- ABOUT SECTION ---------- */
 .about-container {
   max-width: 1000px;
@@ -230,24 +251,101 @@ body, html {
   margin-top: 10px;
   width: 80%;
 }
+/* ---------- CONSOLIDATED MOBILE FIXES ---------- */
+@media (max-width: 768px) {
+  /* Navbar Tightening */
+  .navbar {
+    padding: 10px 15px;
+  }
+  .nav-links {
+    gap: 5px;
+  }
+  .nav-btn {
+    font-size: 0.7rem;
+    padding: 5px;
+    flex-direction: column; /* Stack icons above text for more room */
+    gap: 2px;
+  }
+  .nav-btn .icon {
+    width: 14px;
+    height: 14px;
+  }
 
-/* ---------- MOBILE RESPONSIVENESS ---------- */
-@media (max-width: 900px) {
-  .navbar { padding: 20px; }
-  .nav-links { gap: 15px; }
-  .nav-btn { font-size: 0.85rem; gap: 5px; }
-  
-  .map-wrapper { flex-direction: column; height: 80vh; }
-  .map-sidebar { width: 100%; height: auto; padding: 20px; border-right: none; border-bottom: 1px solid #333; }
-  .map-sidebar p { display: none; }
-  
-  .steps-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; text-align: center; }
+  /* About Page Mobile Polish */
+  .about-container {
+    padding: 100px 20px 40px; /* More space at top for navbar */
+    text-align: center;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about-text h2 {
+    font-size: 2rem;
+  }
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  /* Center the NYUAD Logo on mobile */
+  .about-image img {
+    width: 60% !important;
+    margin: 0 auto;
+  }
+
+  /* Circular Team Section Mobile Fix */
+  .team-grid-circular {
+    grid-template-columns: 1fr; /* One circle per row looks cleaner on narrow screens */
+    gap: 20px;
+    justify-items: center;
+  }
+  .team-card.circle {
+    width: 180px; /* Fixed size so they stay perfect circles */
+    height: 180px;
+    padding: 15px;
+  }
+
+  /* Contribute Page Mobile Polish */
+  .contribute-container {
+    padding: 100px 15px 40px;
+  }
+  .contribute-header h2 {
+    font-size: 1.8rem;
+  }
+  .steps-grid {
+    grid-template-columns: 1fr; /* Stack cards */
+    gap: 12px;
+  }
+  .step-card {
+    min-height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+  .step-num {
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  .action-card h3 {
+    font-size: 1.1rem;
+  }
+  .contribute-btn {
+    width: 100%;
+    font-size: 0.8rem;
+  }
 }
 
-@media (max-width: 600px) {
-  .hero h1 { font-size: 3rem; }
-  .nav-links .nav-btn:not(.active) { display: none; } /* Show only active tab text on tiny screens */
+/* Specific fix for the Hero text on small phones */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .logo {
+    font-size: 0.9rem;
+  }
+  /* Hide the icon on mobile if it's too crowded */
+  .logo-icon {
+    display: none;
+  }
 }
 /* ---------- CIRCULAR TEAM LAYOUT ---------- */
 .team-circle-container {
@@ -336,4 +434,66 @@ body, html {
   .group-photo {
     width: 80%;
   }
+}
+/* Mobile Specific Adjustment */
+@media (max-width: 768px) {
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .about-text {
+    padding: 0 10px; /* Extra side buffer for mobile */
+    text-align: center; /* Centers text for a cleaner look on phones */
+  }
+
+  .about-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 768px) {
+  /* 1. Make the container flush with the screen edges */
+  #map.page {
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 60px); /* Adjust based on navbar height */
+  }
+
+  .map-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    flex-direction: column;
+  }
+
+  /* 2. Hide the black text sidebar completely on mobile */
+  .map-sidebar {
+    display: none !important;
+  }
+
+  /* 3. Ensure the map container fills 100% of the wrapper */
+  .map-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+.navbar {
+  /* Keep your existing styles, but ensure background is slightly see-through */
+  background: rgba(10, 10, 10, 0.7); 
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
